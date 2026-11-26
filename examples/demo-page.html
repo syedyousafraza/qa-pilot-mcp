@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QA Pilot demo shop</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px; }
+    h1 { font-size: 28px; }
+    label { display: block; margin: 16px 0 4px; font-weight: 600; }
+    input[type="text"] { width: 100%; padding: 10px; font-size: 16px; }
+    button { margin-top: 16px; padding: 10px 18px; font-size: 16px; cursor: pointer; }
+    .primary { background: #2563eb; color: #fff; border: none; border-radius: 6px; }
+    #message { margin-top: 20px; padding: 12px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; display: none; }
+    .product { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-top: 16px; }
+    .price { font-size: 20px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>QA Pilot demo shop</h1>
+  <p>A tiny page built to show off the MCP tools: navigate, snapshot, click, type, screenshot and selector healing.</p>
+
+  <div class="product">
+    <h2>Wireless headphones</h2>
+    <p class="price">$49.99</p>
+    <label for="qty">Quantity</label>
+    <input type="text" id="qty" name="qty" placeholder="How many?" data-testid="qty-input" value="1">
+    <!-- The old selector #checkout-btn no longer matches: the id was renamed in the last release. -->
+    <button id="checkout-btn-new" class="primary" data-testid="add-to-cart" onclick="document.getElementById('message').style.display='block';document.getElementById('message').textContent='Added ' + document.getElementById('qty').value + ' × Wireless headphones to your cart.';">Add to cart</button>
+  </div>
+
+  <label for="search">Search products</label>
+  <input type="text" id="search" name="search" placeholder="Try &quot;headphones&quot;" aria-label="Search products">
+
+  <button id="show-message" onclick="document.getElementById('message').style.display='block';document.getElementById('message').textContent='Hello from the demo page.';">Show message</button>
+
+  <div id="message" role="status"></div>
+
+  <p><a href="https://example.com">Example link</a></p>
+</body>
+</html>
